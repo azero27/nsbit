@@ -36,9 +36,21 @@ const path = require('path');
 const ruleRouter = require('./routes/projectRouter');
 
 //key
-/*const crypto = require('crypto');
-const apiKeys = new Set();
-*/
+const crypto = require('crypto');
+const apiKey = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //key 문자열
+
+app.get('/', (req, res) => {
+  const clientApiKey = req.headers['x-api-key'];
+
+  if (clientApiKey === apiKey) {
+    // 클라이언트의 API 키가 유효한 경우
+    res.json({ message: 'API 키가 유효합니다.' });
+  } else {
+    // 클라이언트의 API 키가 유효하지 않은 경우
+    res.status(401).json({ error: '유효하지 않은 API 키' });
+  }
+});
+
 
 app.use(express.static('public'));
 app.use(cors());
