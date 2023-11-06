@@ -1,4 +1,4 @@
-// routers/companyRouter.js
+// routes/projectRouter.js
 const ruleController = require('../controllers/projectController');
 const {
   getAllRules,
