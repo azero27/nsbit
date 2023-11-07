@@ -13,19 +13,20 @@ const getAllRules = async (req, res) => {
   res.send(ruleLists);
 };
 
-
 const getRule = async (req, res) => {
   const { data } = req.body; // 클라이언트에서 전달된 데이터를 요청에서 추출합니다.
 
   const rule = await rules.findOne({
     where: {
-      // 여기서 'column1', 'column2', 'column3', 'column4', 'column5', 'column6' 등은 실제 데이터베이스의 열 이름으로 수정해야 합니다.
-      column1: data.column1, // 클라이언트에서 전달한 데이터와 데이터베이스 열 값 비교
-      column2: data.column2,
-      column3: data.column3,
-      column4: data.column4,
-      column5: data.column5,
-      column6: data.column6
+      // 클라이언트에서 전달한 데이터와 데이터베이스 열을 비교하여 일치 여부를 확인합니다.
+      action: data.action,
+      protocol: data.protocol,
+      src_ip: data.src_ip,
+      src_port: data.src_port,
+      d: data.d,
+      dst_ip: data.dst_ip,
+      dst_port: data.dst_port,
+      option: data.option
     }
   });
 
