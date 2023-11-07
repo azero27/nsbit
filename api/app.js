@@ -37,7 +37,7 @@ const ruleRouter = require('./routes/projectRouter');
 
 //key
 const crypto = require('crypto');
-const apiKey = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //key 문자열
+const apiKey = "aaaa"; //key 문자열
 
 app.get('/', (req, res) => {
   const clientApiKey = req.headers['x-api-key'];
